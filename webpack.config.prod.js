@@ -1,4 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   // Entry file.
@@ -6,8 +9,8 @@ module.exports = {
   
   // Output file. 
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'main.bundle.js'
   },
 
   //loaders
@@ -33,11 +36,16 @@ module.exports = {
   // enable Source maps
   'devtool': 'source-map',
 
-  // DevServer config
-  'devServer': {
-    'contentBase': './src',
-    'historyApiFallback': true,
-    'hot': true,
-    'disableHostCheck': true
-  },
+  // Webpack PLugins
+  'plugins': [
+    new HtmlWebpackPlugin({
+      'template': './src/index.html'
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      'compress': {
+        'warnings': false
+      }
+    })
+  ]
 };
