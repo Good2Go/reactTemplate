@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Template to start project with React and Webpack 2.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --progress --hot --inline"
+  },
   "repository": "https://github.com/fumblehool/reactTemplate.git",
   "author": "Damanpreet <daman.4880@gmail.com>",
   "license": "MIT",
