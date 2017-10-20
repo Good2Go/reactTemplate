@@ -1,5 +1,5 @@
-import * as types from '../constants/ActionTypes.jsx';
-import userApi from '../api/user.jsx';
+import * as types from '../constants/ActionTypes';
+import userApi from '../api/user';
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {

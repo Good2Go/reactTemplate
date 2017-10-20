@@ -6,14 +6,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // Entry file.
   entry: './src/index.jsx',
-  
-  // Output file. 
+
+  // Output file
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'main.bundle.js'
+    filename: 'main.bundle.js',
   },
 
-  //loaders
+  // loaders
   module: {
     rules: [
       {
@@ -21,31 +21,32 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          "presets": [
-            "es2015",
-            "react"
+          presets: [
+            'es2015',
+            'react',
+            'stage-2',
           ],
           plugins: [
           ],
-          compact: false
-        }
-      }
-    ]
+          compact: false,
+        },
+      },
+    ],
   },
 
   // enable Source maps
-  'devtool': 'source-map',
+  devtool: 'source-map',
 
   // Webpack PLugins
-  'plugins': [
+  plugins: [
     new HtmlWebpackPlugin({
-      'template': './src/index.html'
+      template: './src/index.html',
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      'compress': {
-        'warnings': false
-      }
-    })
-  ]
+      compress: {
+        warnings: false,
+      },
+    }),
+  ],
 };

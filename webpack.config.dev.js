@@ -12,7 +12,7 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  //loaders
+  // loaders
   module: {
     rules: [
       {
@@ -20,33 +20,38 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          "presets": [
-            "es2015",
-            "react"
+          presets: [
+            'es2015',
+            'react',
+            'stage-2',
           ],
           plugins: [
           ],
-          compact: false
-        }
-      }
-    ]
+          compact: false,
+        },
+      },
+    ],
   },
 
   // enable Source maps
-  'devtool': 'source-map',
+  devtool: 'source-map',
+
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
 
   // DevServer config
-  'devServer': {
-    'contentBase': './src',
-    'historyApiFallback': true,
-    'hot': true,
-    'disableHostCheck': true
+  devServer: {
+    contentBase: './src',
+    historyApiFallback: true,
+    hot: true,
+    disableHostCheck: true,
   },
 
   // Webpack Plugins
-  'plugins': [
+  plugins: [
     new HtmlWebpackPlugin({
-      'template': './src/index.html'
-    })
-  ]
+      template: './src/index.html',
+    }),
+  ],
 };
