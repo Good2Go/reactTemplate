@@ -1,10 +1,8 @@
 import { createStore } from 'redux';
 
+import rootReducer from '../reducers/index.jsx';
 
 export default function() {
-  const store = createStore(
-    // Reducers.
-    // ...
-  );
+  const store = createStore(rootReducer); // Reducers
   return store;
 }
