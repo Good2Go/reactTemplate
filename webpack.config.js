@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   // Entry file.
-  entry: './src',
+  entry: './src/index.jsx',
   
   // Output file. 
   output: {
